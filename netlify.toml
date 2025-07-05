@@ -2,6 +2,6 @@
 [build]
   command = "echo 'Applying settings from netlify.toml'"
 
-# ตั้งค่า Timeout ของ Function
-[functions]
+# การตั้งค่า Timeout ของ Function (โค้ดที่ถูกต้อง)
+[functions."*"]
   timeout = 25

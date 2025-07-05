@@ -1,7 +1,22 @@
 # สั่งให้ Netlify มีขั้นตอนการ Build
 [build]
   command = "echo 'Applying settings from netlify.toml'"
+  functions = "netlify/functions"
 
-# การตั้งค่า Timeout ของ Function (โค้ดที่ถูกต้อง)
-[functions."*"]
+# ตั้งค่า Timeout ของ Function
+[functions]
   timeout = 25
+  
+# ตั้งค่า Headers สำหรับ CORS
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Allow-Methods = "POST, OPTIONS, GET"
+
+# ตั้งค่า Redirects สำหรับ API
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

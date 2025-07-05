@@ -3,10 +3,10 @@
   command = "echo 'Applying settings from netlify.toml'"
   functions = "netlify/functions"
 
-# ตั้งค่า Timeout ของ Function
+# ตั้งค่า Function directory
 [functions]
-  timeout = 25
-  
+  directory = "netlify/functions"
+
 # ตั้งค่า Headers สำหรับ CORS
 [[headers]]
   for = "/.netlify/functions/*"

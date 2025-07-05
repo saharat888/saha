@@ -1,0 +1,7 @@
+# สั่งให้ Netlify มีขั้นตอนการ Build
+[build]
+  command = "echo 'Applying settings from netlify.toml'"
+
+# ตั้งค่า Timeout ของ Function
+[functions]
+  timeout = 25
